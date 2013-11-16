@@ -8,7 +8,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   
 
 
-  return "<h1>Grouprate</h1>\n\n<p>Do stuff</p>\n\n<a href=\"/users\">Users</a>\n";
+  return "<h1>Grouprate</h1>\n\n<p>Do stuff</p>\n\n<a href=\"/users\">Users</a>\n\n\n\n<table class=\"table table-striped table-hover sortable\">\n	<caption>Top Players</caption>\n	<tr>\n		<th width=\"56\"></th>\n		<th>Name</th>\n		<th>Game</th>\n		<th>Record</th>\n		<th>Streak</th>\n	</tr>\n	<tr>\n		<td><img class=\"img-circle\" src=\"img/default.jpg\" width=\"56\" height=\"56\"></td>\n		<td>Jenna</td>\n		<td>Ping Pong</td>\n		<td>3-1</td>\n		<td>2 Wins</td>\n	</tr>\n	<tr>\n		<td><img class=\"img-circle\" src=\"img/default.jpg\" width=\"56\" height=\"56\"></td>\n		<td>Jenna</td>\n		<td>Ping Pong</td>\n		<td>3-1</td>\n		<td>2 Wins</td>\n	</tr>\n	<tr>\n		<td><img class=\"img-circle\" src=\"img/default.jpg\" width=\"56\" height=\"56\"></td>\n		<td>Jenna</td>\n		<td>Ping Pong</td>\n		<td>3-1</td>\n		<td>2 Wins</td>\n	</tr>\n</table>";
   });
 
 templates["users/index"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
