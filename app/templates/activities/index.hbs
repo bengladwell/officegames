@@ -1,0 +1,15 @@
+<ul class="nav nav-tabs">
+    <li><a href="/dashboard" data-toggle="tab">Dashboard</a></li>
+    <li><a href="/players" data-toggle="tab">Players</a></li>
+    <li><a href="/teams" data-toggle="tab">Teams</a></li>
+    <li class="active"><a href="/activities" data-toggle="tab">Activities</a></li>
+</ul>
+<h1>Activities</h1>
+
+<ul>
+{{#each models}}
+  <li>
+    <a href="/activities/{{id}}">{{name}}</a>
+  </li>
+{{/each}}
+</ul>

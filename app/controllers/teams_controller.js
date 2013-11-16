@@ -4,7 +4,7 @@ module.exports = {
     index: function (params, callback) {
         "use strict";
         var spec = {
-            collection: {collection: 'Users', params: params}
+            collection: {collection: 'Teams', params: params}
         };
         this.app.fetch(spec, function (err, result) {
             callback(err, result);

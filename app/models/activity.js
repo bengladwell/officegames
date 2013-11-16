@@ -1,6 +1,6 @@
 var Base = require('./base');
 
 module.exports = Base.extend({
-    url: '/users/:id'
+    url: '/activity/:id'
 });
-module.exports.id = 'User';
+module.exports.id = 'Activity';
