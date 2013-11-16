@@ -108,7 +108,6 @@ KnexAdapter.prototype.request = function (req, api, options, callback) {
 
     if (api.method === 'GET') {
         var table = api.path.substr(1);
-        this.knex(table).select().then(_.partial(callback, null, {statusCode: 200}));
         this.knex(table).select().then(function (rows) {
             // there's gotta be a better way to create a response
             var fakeResponse = {
