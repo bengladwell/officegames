@@ -1,0 +1,6 @@
+data.db
+node_modules
+*.swp
+
+public/mergedAssets.js
+public/stylesheets/style.min.css
