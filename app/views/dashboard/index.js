@@ -1,5 +1,6 @@
 var BaseView = require('../base'),
-    _ = require('underscore');
+    _ = require('underscore'),
+    Backbone = require('backbone');
 
 module.exports = BaseView.extend({
 
@@ -8,7 +9,7 @@ module.exports = BaseView.extend({
     getTemplateData: function () {
         "use strict";
         var data = {
-            matches: _.map(
+            matches: new Backbone.Collection(_.map(
                 this.options.matches.toJSON(),
                 function (m) {
                     return _.extend({}, m, {
@@ -62,7 +63,7 @@ module.exports = BaseView.extend({
                     });
                 },
                 this
-            )
+            ))
         };
         //console.log(data);
         return data;
