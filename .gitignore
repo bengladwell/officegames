@@ -3,4 +3,5 @@ node_modules
 *.swp
 
 public/mergedAssets.js
-public/stylesheets/style.min.css
+app/templates/compiledTemplates.js
+public/stylesheets/

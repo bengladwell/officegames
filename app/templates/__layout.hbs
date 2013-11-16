@@ -5,29 +5,20 @@
     <meta charset='utf-8'/>
     <title>Rendr Example App</title>
 
-    <link href="/stylesheets/bootstrap-3.0.2.min.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/smallest.min.css" media="screen" rel="stylesheet" type="text/css" />
   </head>
 
   <body class="">
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="/">Title!</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="/">Home</a></li>
-              <li class="active"><a href="/matches">Matches</a></li>
-              <li class="active"><a href="/players">Players</a></li>
-            </ul>
-          </div>
-          <div class="loading-indicator">Loading&hellip;</div>
-        </div>
-      </div>
+    <div class="navbar navbar-default">
+        <a class="admin" href="/admin">Admin</a>
     </div>
 
+    <section class="branding">
+        <h1>Office Name/Logo<h1>
+    </section>
+
     <section id="content" class="container">
-      {{{body}}}
+        {{{body}}}
     </section>
 
     <script src="/mergedAssets.js"></script>
