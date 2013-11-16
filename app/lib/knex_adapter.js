@@ -62,6 +62,7 @@ KnexAdapter.prototype.setupTables = function () {
                     console.log('Creating matches table');
                     table.increments().primary();
                     table.integer('activity_id');
+                    table.timestamp('start_time');
                     table.timestamps();
                 });
             }
