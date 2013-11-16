@@ -31,6 +31,20 @@ module.exports = function (grunt) {
             }
         },
 
+        jslint: {
+            all: {
+                src: [ 'app/**/*.js'],
+                exclude: 'app/templates/compiledTemplates.js',
+                options: { failOnError: true },
+                directives: {
+                    browser: true,
+                    node: true,
+                    nomen: true,
+                    indent: 4
+                }
+            },
+        },
+
         watch: {
             scripts: {
                 files: 'app/**/*.js',
@@ -84,6 +98,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-handlebars');
     grunt.loadNpmTasks('grunt-rendr-stitch');
+    grunt.loadNpmTasks('grunt-jslint');
 
     grunt.registerTask('runNode', function () {
         grunt.util.spawn({
@@ -98,7 +113,7 @@ module.exports = function (grunt) {
     });
 
 
-    grunt.registerTask('compile', ['handlebars', 'rendr_stitch']);
+    grunt.registerTask('compile', ['jslint', 'handlebars', 'rendr_stitch']);
 
     // Run the server and watch for file changes
     grunt.registerTask('server', ['runNode', 'compile', 'watch']);
