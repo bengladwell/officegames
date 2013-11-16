@@ -22,12 +22,68 @@ KnexAdapter.prototype.setupTables = function () {
     var self = this;
     return when.all([
 
-        self.knex.schema.hasTable('users').then(function (exists) {
+        self.knex.schema.hasTable('players').then(function (exists) {
             if (!exists) {
-                return self.knex.schema.createTable('users', function (table) {
-                    console.log('Creating users table');
+                return self.knex.schema.createTable('players', function (table) {
+                    console.log('Creating players table');
                     table.increments().primary();
-                    table.string('username');
+                    table.string('name').unique();
+                    table.string('email').unique();
+                    table.timestamps();
+                });
+            }
+        }),
+
+        self.knex.schema.hasTable('teams').then(function (exists) {
+            if (!exists) {
+                return self.knex.schema.createTable('teams', function (table) {
+                    console.log('Creating teams table');
+                    table.increments().primary();
+                    table.string('name');
+                    table.timestamps();
+                });
+            }
+        }),
+
+        self.knex.schema.hasTable('players_teams').then(function (exists) {
+            if (!exists) {
+                return self.knex.schema.createTable('players_teams', function (table) {
+                    console.log('Creating players_teams table');
+                    table.increments().primary();
+                    table.integer('player_id').notNullable();
+                    table.integer('team_id').notNullable();
+                });
+            }
+        }),
+
+        self.knex.schema.hasTable('matches').then(function (exists) {
+            if (!exists) {
+                return self.knex.schema.createTable('matches', function (table) {
+                    console.log('Creating matches table');
+                    table.increments().primary();
+                    table.integer('activity_id');
+                    table.timestamps();
+                });
+            }
+        }),
+
+        self.knex.schema.hasTable('matches_teams').then(function (exists) {
+            if (!exists) {
+                return self.knex.schema.createTable('matches_teams', function (table) {
+                    console.log('Creating matches_teams table');
+                    table.increments().primary();
+                    table.integer('match_id').notNullable();
+                    table.integer('team_id').notNullable();
+                    table.boolean('winner').notNullable();
+                });
+            }
+        }),
+
+        self.knex.schema.hasTable('activities').then(function (exists) {
+            if (!exists) {
+                return self.knex.schema.createTable('activities', function (table) {
+                    console.log('Creating activities table');
+                    table.increments().primary();
                     table.string('name');
                     table.timestamps();
                 });
