@@ -8,7 +8,7 @@ module.exports = {
     index: function (params, callback) {
         "use strict";
         var spec = {
-            matches: {collection: 'matches', params: _.extend({
+            collection: {collection: 'matches', params: _.extend({
                 querymod: [ ['limit', 5], ['orderBy', 'created_at', 'desc'] ],
                 fetchmod: { withRelated: ['activity', 'teams.players'] }
             }, params)}
@@ -17,7 +17,7 @@ module.exports = {
 
         this.app.fetch(spec, function (err, result) {
             // cache nested models
-            result.matches.each(function (match) {
+            result.collection.each(function (match) {
                 // a bit wasteful; would be better to create sets of unique models and save those;
                 // here, we duplicate .store() operations
 
