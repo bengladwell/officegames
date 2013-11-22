@@ -7,6 +7,9 @@ var _ = require('underscore'),
 module.exports = {
     index: function (params, callback) {
         "use strict";
+
+        this.app.req.res.locals.tab = 'dashboard';
+
         var spec = {
             collection: {collection: 'matches', params: _.extend({
                 querymod: [ ['limit', 5], ['orderBy', 'created_at', 'desc'] ],
