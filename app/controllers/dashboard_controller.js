@@ -58,7 +58,9 @@ module.exports = {
                 );
             });
 
-            callback(err, result);
+            result.secondary_view = "dashboard/index";
+
+            callback(err, "shared/main", result);
 
         });
     }
